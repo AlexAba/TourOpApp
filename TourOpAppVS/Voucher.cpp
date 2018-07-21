@@ -10,16 +10,32 @@ Voucher::Voucher() {
 	flag = inactive;
 }
 void Voucher::ChangeVoucher(short kids, short adults, Address address, tm date, Status status) {
-
-	address.ChangeAddress(address.country, address.region, address.city, address.hotel, address.room);
+	if (kids < 0 || adults < 0) throw invalid_argument("\nInvalid number of humans.\n");
+	this->kids = kids;
+	this->adults = adults;
+	this->address.ChangeAddress(address.country, address.region, address.city, address.hotel, address.room);
 	ChangeTime(date);
 	SetPrice(1000);
 
 }
-void Voucher::ChangeTime(tm time) {
-	vouchTime = time;
+void Voucher::ChangeTime(tm date) {
+	time_t now = time(0);
+	tm currentTime = tm();
+	gmtime_s(&currentTime, &now);
+
+	vouchTime = date;
+
+	if (!DateIsCorrect(vouchTime, currentTime)) throw invalid_date("\nDate is impossible.\n");
 }
-bool Voucher::DateIsCorrect() {
+bool Voucher::DateIsCorrect(tm date, tm currentTime) {
+	if (date.tm_year < currentTime.tm_year) return false;
+	else if (date.tm_year == currentTime.tm_year) {
+		if (date.tm_mon < currentTime.tm_mon) return false;
+		else if (date.tm_mon == currentTime.tm_mon) {
+			if (date.tm_mday <= currentTime.tm_mon) return false;
+		}
+	}
+	
 	return true;
 }
 Status Voucher::GetFlag() {
@@ -49,13 +65,6 @@ void operator >>(istream &is, Voucher &voucher) {
 	is >> iflag;
 	voucher.SetFlag(iflag);
 }
-void Voucher::ShowVoucher() {
-	cout << "The number of kids:\t" << kids << endl;
-	cout << "The number of adults:\t" << adults << endl;
-	address.PrintAddress();
-	PrintDate();
-	cout << "Price:\t\t\t$" << price << endl;
-}
 float Voucher::PriceRate() {
 	time_t now = time(0);
 	tm * currentTime = new tm();
@@ -78,7 +87,4 @@ void Voucher::SetPrice(float factor) {
 
 	price = float(((int)address.room * 1.5 * adults + (int)address.room * kids * 0.8f) * factor);
 
-}
-void Voucher::PrintDate() {
-	cout << "Date:\t\t\t" << vouchTime.tm_mday << "." << vouchTime.tm_mon + 1 << "." << vouchTime.tm_year << endl;
 }

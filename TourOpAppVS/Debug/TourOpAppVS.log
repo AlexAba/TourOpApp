@@ -1,5 +1,9 @@
 ﻿  Address.cpp
+e:\development\touropappvs\touropappvs\address.h(15): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+e:\development\touropappvs\touropappvs\address.cpp(11): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
   Controller.cpp
+e:\development\touropappvs\touropappvs\address.h(15): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+e:\development\touropappvs\touropappvs\voucher.h(17): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
 e:\development\touropappvs\touropappvs\controller.cpp(26): warning C4018: '<': signed/unsigned mismatch
 e:\development\touropappvs\touropappvs\controller.cpp(35): warning C4018: '<': signed/unsigned mismatch
 e:\development\touropappvs\touropappvs\controller.cpp(96): warning C4018: '<': signed/unsigned mismatch
@@ -13,9 +17,9 @@ e:\development\touropappvs\touropappvs\controller.cpp(223): warning C4018: '<': 
   invalid_date.cpp
 e:\development\touropappvs\touropappvs\invalid_date.cpp(14): error C2084: function 'std::string invalid_date::GetMessage(void)' already has a body
   e:\development\touropappvs\touropappvs\invalid_date.h(11): note: see previous definition of 'GetMessage'
-  mylib.cpp
-  TourOpAppVS.cpp
   User.cpp
+e:\development\touropappvs\touropappvs\address.h(15): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+e:\development\touropappvs\touropappvs\voucher.h(17): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
 e:\development\touropappvs\touropappvs\user.cpp(40): warning C4018: '<': signed/unsigned mismatch
 e:\development\touropappvs\touropappvs\user.cpp(72): warning C4018: '>=': signed/unsigned mismatch
 e:\development\touropappvs\touropappvs\user.cpp(74): error C2660: 'Voucher::ChangeVoucher': function does not take 0 arguments
@@ -24,5 +28,4 @@ e:\development\touropappvs\touropappvs\user.cpp(84): warning C4018: '<': signed/
 e:\development\touropappvs\touropappvs\user.cpp(93): warning C4018: '<': signed/unsigned mismatch
 e:\development\touropappvs\touropappvs\user.cpp(103): warning C4018: '<': signed/unsigned mismatch
 e:\development\touropappvs\touropappvs\user.cpp(127): warning C4018: '>=': signed/unsigned mismatch
-  Voucher.cpp
   Generating Code...

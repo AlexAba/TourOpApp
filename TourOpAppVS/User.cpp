@@ -42,40 +42,16 @@ void User::WriteVouchers() {
 	}
 	ofVouch.close();
 }
-void User::ChangeUserData() {
-	string pass;
-	cout << "Enter your name: ";
-	cin >> name;
-	cout << "Enter your surname: ";
-	cin >> surname;
-	do {
-		cout << "Enter your previous password: ";
-		cin >> pass;
-	} while (!PassIsCorrect(pass));
-	cout << "Enter your new pass: ";
-	cin >> pass;
-	SetPass(pass);
-	CleanScreen();
-
-	cout << "Mr/Ms " << name << " " << surname << " your data was changed successful\n";
-	CleanScreen();
-
+void User::ChangeUserData(string name, string surname, string previousPass, string newPass) {
+	
+	this->name = name;
+	this->surname = surname;
+	if (password != EncryptPass(previousPass)) throw invalid_argument("\nIncorect data: previous password.\n");
+	SetPass(newPass);
 }
-void User::ChangeVoucher() {
-	int choose = -1;
-	cout << "Choose voucher.\n";
-	PrintActivVouchers();
-	if (vchrCount > 0) {
-		do {
-			cout << "Enter number of your voucher: " << endl;
-			cin >> choose;
-		} while (choose < 0 || choose >= vouchers.size());
-		CleanScreen();
-		vouchers[choose].ChangeVoucher();
+void User::ChangeVoucher(short choose, short kids, short adults, Address address, tm date, Status status) {
 
-	}
-	else { cout << "You do not have any voucher"; }
-	CleanScreen();
+		vouchers[choose].ChangeVoucher(kids, adults, address, date, status);
 }
 string User::EncryptPass(string pass) {
 	int key = userID * 2 + userID % 26;
@@ -89,76 +65,36 @@ string User::EncryptPass(string pass) {
 Voucher User::GetVoucher(int index) {
 	return vouchers[index];
 }
-void User::PrintActivVouchers() {
-	for (int i = 0; i < vouchers.size(); i++) {
-		if (vouchers[i].GetFlag() != inactive) {
-			cout << "\n\n";
-			cout << "\t" << i << "\n";
-			vouchers[i].ShowVoucher();
-		}
-		cout << "\n\n";
-	}
-}
-void User::PrintPreoderedVouchers() {
-	for (int i = 0; i < vouchers.size(); i++) {
-		cout << "\n\n";
-		cout << "\t" << i << "\n";
-		if (vouchers[i].GetFlag() == preodered) {
-			vouchers[i].ShowVoucher();
-		}
-		cout << "\n\n";
-	}
-}
+
 bool User::PassIsCorrect(string pass) {
 	if (password == EncryptPass(pass)) {
 		return true;
 	}
 	return false;
 }
-void User::RefundMoney() {
-
-	int choose = -1;
-	cout << "Choose voucher.\n";
-	PrintActivVouchers();
-	if (vchrCount > 0) {
-		do {
-			cout << "Enter number of your voucher: " << endl;
-			cin >> choose;
-		} while (choose < 0 || choose >= vouchers.size());
-		if (vouchers[choose].GetFlag() == inactive) {
-			cout << "Incorrect voucher index" << endl;
-			CleanScreen();
-			return;
-		}
-		float retMoney = 0;
-		vouchers[choose].SetFlag(0);
-		vchrCount--;
-		retMoney = vouchers[choose].GetPrice() * vouchers[choose].PriceRate();
-		cout << "We will return you:\t$" << retMoney << endl;
-
-	}
-	else { cout << "You do not have any voucher"; }
-	CleanScreen();
+int User::RefundMoney(short choose) {
+	
+	float retMoney = 0;
+	vouchers[choose].SetFlag(0);
+	vchrCount--;
+	retMoney = vouchers[choose].GetPrice() * vouchers[choose].PriceRate();
+	return retMoney;
 
 }
-bool User::BuyVoucher(short kids, short adults, Address address, tm date) {
+void User::BuyVoucher(short kids, short adults, Address address, tm date) {
 
 	vouchers.resize(++vchrCount);
 
 	vouchers[vchrCount - 1].ChangeVoucher(kids, adults, address, date, active);
-	return true;
 }
-bool User::BuyExistedVoucher(short choose) {
+void User::BuyExistedVoucher(short choose) {
 
 	vouchers[choose].SetFlag(2);
-
-	return true;
 }
-bool User::ReservVoucher(short kids, short adults, Address address, tm date) {
+void User::ReservVoucher(short kids, short adults, Address address, tm date) {
 	vouchers.resize(++vchrCount);
 
 	vouchers[vchrCount - 1].ChangeVoucher(kids, adults, address, date, preodered);
-	return true;
 }
 void User::SetID(int uid) {
 	if (!userID) userID = uid;
@@ -177,6 +113,9 @@ void User::SetPass(string pass) {
 }
 int User::GetUId() {
 	return userID;
+}
+int User::GetVoucherCount() {
+	return vchrCount;
 }
 void operator << (ostream &os, User &user) {
 	os << user.userID << " " << user.login << " " << user.password << " " << user.name << " " << user.surname << " " << user.vchrCount << "\n";

@@ -9,18 +9,20 @@ private:
 	string password;
 	string name;
 	string surname;
+	// This field needs to create vector of corect size every time, when programm is starting.
 	int vchrCount;
 	vector<Voucher> vouchers;
 public:
 	User();								// Constructor.
-	bool BuyVoucher(short kids, short adults, Address address, tm date);					//	Buy new Voucher.
-	bool BuyExistedVoucher(short choose);			//	Buy reserved Voucher.	
-	bool ReservVoucher(short kids, short adults, Address address, tm date);				//	Reserv Voucher.
-	void RefundMoney();					//	Refund money for the voucher, including date.
+	void BuyVoucher(short kids, short adults, Address address, tm date);					//	Buy new Voucher.
+	void BuyExistedVoucher(short choose);			//	Buy reserved Voucher.	
+	void ReservVoucher(short kids, short adults, Address address, tm date);				//	Reserv Voucher.
+	int RefundMoney(short choose);					//	Refund money for the voucher, including date.
 	string GetLogin();					//	Return user login.
 	string GetName();					//	Return user name.
 	string GetSurname();				//	Return user surname.
 	int GetUId();
+	int GetVoucherCount();
 	string EncryptPass(string pass);	//	This method encripting user pass.
 	bool PassIsCorrect(string pass);		//	Check encrytped password, and return true if pass is right.
 	void SetPass(string pass);
@@ -31,11 +33,8 @@ public:
 	void ReadVouchers();				//	Read Voucher from the file. 
 	void WriteVouchers();
 	Voucher GetVoucher(int index);			//	Return one Voucher.
-	void ChangeUserData();				//	This method change user data.
-	void ChangeVoucher();
-	void PrintActivVouchers();
-	void PrintPreoderedVouchers();
-	//void SetVouchID(int val);
+	void ChangeUserData(string name, string surname, string previousPass, string newPass) throw (invalid_argument, bad_exception);
+	void ChangeVoucher(short choose, short kids, short adults, Address address, tm date, Status status);
 	friend void operator << (ostream &os, User &user);
 	friend void operator >> (istream &is, User &user);
 };
