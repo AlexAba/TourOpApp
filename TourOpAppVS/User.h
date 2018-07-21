@@ -13,9 +13,9 @@ private:
 	vector<Voucher> vouchers;
 public:
 	User();								// Constructor.
-	void BuyVoucher();					//	Buy new Voucher.
-	void BuyExistedVoucher();			//	Buy reserved Voucher.	
-	void ReservVoucher();				//	Reserv Voucher.
+	bool BuyVoucher(short kids, short adults, Address address, tm date);					//	Buy new Voucher.
+	bool BuyExistedVoucher(short choose);			//	Buy reserved Voucher.	
+	bool ReservVoucher(short kids, short adults, Address address, tm date);				//	Reserv Voucher.
 	void RefundMoney();					//	Refund money for the voucher, including date.
 	string GetLogin();					//	Return user login.
 	string GetName();					//	Return user name.

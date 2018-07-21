@@ -9,72 +9,18 @@ Voucher::Voucher() {
 	vouchTime = tm();
 	flag = inactive;
 }
-void Voucher::ChangeVoucher() {
+void Voucher::ChangeVoucher(short kids, short adults, Address address, tm date, Status status) {
 
-	do {
-		cout << "Entre, please, the number of kids ";
-		cin >> kids;
-		if (CinFail()) kids = -1;
-	} while (kids < 0);
-	do {
-		cout << "Entre, please, the number of adults ";
-		cin >> adults;
-		if (CinFail()) adults = -1;
-	} while (adults < 0);
-	address.ChangeAddress();
-	ChangeTime();
+	address.ChangeAddress(address.country, address.region, address.city, address.hotel, address.room);
+	ChangeTime(date);
+	SetPrice(1000);
 
 }
-void Voucher::ChangeTime() {
-	do {
-		do {
-			cout << "Enter year ";
-			cin >> vouchTime.tm_year;
-			if (CinFail()) {
-				vouchTime.tm_year = -1;
-			}
-		} while (vouchTime.tm_year < 0);
-		int temp;
-		do {
-			cout << "Enter month ";
-			cin >> temp;
-			if (CinFail()) {
-				temp = -1;
-			}
-			vouchTime.tm_mon = temp - 1;
-
-		} while (vouchTime.tm_mon < 0 || vouchTime.tm_mon > 11);
-		do {
-			cout << "Enter day ";
-			cin >> vouchTime.tm_mday;
-			if (CinFail()) {
-				vouchTime.tm_mday = -1;
-			}
-		} while (vouchTime.tm_mday < 1 || vouchTime.tm_mday > 31);
-	} while (!DateIsCorrect());
-
+void Voucher::ChangeTime(tm time) {
+	vouchTime = time;
 }
 bool Voucher::DateIsCorrect() {
-	time_t now = time(0);
-	tm * currentTime = new tm();
-	gmtime_s(currentTime, &now);
-	int year = 1900 + currentTime->tm_year;
-	if (vouchTime.tm_year < year) {
-		return false;
-	}
-	else if (vouchTime.tm_year == year) {
-		if (vouchTime.tm_mon < currentTime->tm_mon) {
-			return false;
-		}
-		else if (vouchTime.tm_mon == currentTime->tm_mon) {
-			if (vouchTime.tm_mday <= currentTime->tm_mday) {
-				return false;
-			}
-			else return true;
-		}
-		else return true;
-	}
-	else return true;
+	return true;
 }
 Status Voucher::GetFlag() {
 	return flag;

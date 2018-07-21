@@ -1,2 +1,28 @@
-﻿  Voucher.cpp
-  TourOpAppVS.vcxproj -> E:\Development\TourOpAppVS\Debug\TourOpAppVS.exe
+﻿  Address.cpp
+  Controller.cpp
+e:\development\touropappvs\touropappvs\controller.cpp(26): warning C4018: '<': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\controller.cpp(35): warning C4018: '<': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\controller.cpp(96): warning C4018: '<': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\controller.cpp(180): error C2660: 'User::BuyVoucher': function does not take 0 arguments
+  e:\development\touropappvs\touropappvs\user.h(16): note: see declaration of 'User::BuyVoucher'
+e:\development\touropappvs\touropappvs\controller.cpp(183): error C2660: 'User::BuyExistedVoucher': function does not take 0 arguments
+  e:\development\touropappvs\touropappvs\user.h(17): note: see declaration of 'User::BuyExistedVoucher'
+e:\development\touropappvs\touropappvs\controller.cpp(186): error C2660: 'User::ReservVoucher': function does not take 0 arguments
+  e:\development\touropappvs\touropappvs\user.h(18): note: see declaration of 'User::ReservVoucher'
+e:\development\touropappvs\touropappvs\controller.cpp(223): warning C4018: '<': signed/unsigned mismatch
+  invalid_date.cpp
+e:\development\touropappvs\touropappvs\invalid_date.cpp(14): error C2084: function 'std::string invalid_date::GetMessage(void)' already has a body
+  e:\development\touropappvs\touropappvs\invalid_date.h(11): note: see previous definition of 'GetMessage'
+  mylib.cpp
+  TourOpAppVS.cpp
+  User.cpp
+e:\development\touropappvs\touropappvs\user.cpp(40): warning C4018: '<': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\user.cpp(72): warning C4018: '>=': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\user.cpp(74): error C2660: 'Voucher::ChangeVoucher': function does not take 0 arguments
+  e:\development\touropappvs\touropappvs\voucher.h(16): note: see declaration of 'Voucher::ChangeVoucher'
+e:\development\touropappvs\touropappvs\user.cpp(84): warning C4018: '<': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\user.cpp(93): warning C4018: '<': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\user.cpp(103): warning C4018: '<': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\user.cpp(127): warning C4018: '>=': signed/unsigned mismatch
+  Voucher.cpp
+  Generating Code...

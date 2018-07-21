@@ -8,9 +8,12 @@ struct Address {
 	string city;
 	string hotel;
 	RoomType room;
-	Address();							// Constructor.
-	void ChangeAddress();				// Change Address data.
-	void PrintAddress();				// Print Address data.
+	// Constructor.
+	Address();
+	// Change Address data.
+	void ChangeAddress(string country, string region, string city, string hotel, RoomType roomType);
+	// Print Address data.
+	void PrintAddress();				
 	friend void operator << (ostream &os, Address &address);
 	friend void operator >> (istream &is, Address &address);
 };

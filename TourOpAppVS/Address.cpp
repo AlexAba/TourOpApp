@@ -8,24 +8,13 @@ Address::Address() {
 	hotel = " ";
 	room = undefine;
 }
-void Address::ChangeAddress() {
-	cout << "Enter country ";
-	cin >> country;
-	cout << "Enter region ";
-	cin >> region;
-	cout << "Enter city ";
-	cin >> city;
-	cout << "Enter hotel name ";
-	cin >> hotel;
-	int tempType;
-	do {
-		cout << "Choose room type: \n1)One room.\n2)Two rooms.\n3)Three rooms.\n4)More than three rooms.\n";
-		cin >> tempType;
-		if (CinFail()) {
-			tempType = -1;
-		}
-	} while (tempType < 1 || tempType > 4);
-	room = (RoomType)tempType;
+void Address::ChangeAddress(string country, string region, string city, string hotel, RoomType roomType) {
+	this->country = country;
+	this->region = region;
+	this->city = city;
+	this->hotel = hotel;
+	if (roomType < 0 || roomType > 4) { throw &invalid_argument("Bad roomType argument"); }
+	room = roomType;
 }
 void operator<< (ostream& os, Address& address) {
 	os << address.country << " " << address.region << " " << address.city << " " << address.hotel << " " << address.room;

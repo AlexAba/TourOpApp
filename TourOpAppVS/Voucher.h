@@ -4,8 +4,6 @@
 
 class Voucher {
 private:
-	//int vchrID;
-	//int userID;
 	short kids;
 	short adults;
 	float price;
@@ -14,8 +12,8 @@ private:
 	Status flag;
 public:
 	Voucher();							// Constructor.
-	void ChangeTime();
-	void ChangeVoucher();				//	Change Voucher settings.
+	void ChangeTime(tm date);
+	void ChangeVoucher(short kids, short adults, Address address, tm date, Status voucherStatus);				//	Change Voucher settings.
 	//int GetVchrID();					//	Return Voucher ID.
 	Status GetFlag();					//	Return flag of Status of voucher.
 	Address GetAddress();

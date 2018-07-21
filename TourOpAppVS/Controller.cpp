@@ -176,7 +176,6 @@ void Controller::Menu(int index) {
 	} while (choose < 1 || choose > 8);
 
 	system("cls");
-
 	switch (choose) {
 	case 1: users[index].BuyVoucher();
 		break;

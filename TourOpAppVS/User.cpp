@@ -141,68 +141,24 @@ void User::RefundMoney() {
 	CleanScreen();
 
 }
-void User::BuyVoucher() {
+bool User::BuyVoucher(short kids, short adults, Address address, tm date) {
 
-	string cardNum;
 	vouchers.resize(++vchrCount);
-	vouchers[vchrCount - 1];
-	//int vchrID = nextVouchID++;
 
-	vouchers[vchrCount - 1].SetFlag(2);
-	//vouchers[vchrCount - 1].SetIDs(userID, vchrID);
-	vouchers[vchrCount - 1].ChangeVoucher();
-	vouchers[vchrCount - 1].SetPrice(1000);
-
-	cout << "Price:\t$" << vouchers[vchrCount - 1].GetPrice() << endl;
-
-	do {
-		cout << "Enter, please your card details: ";
-		cin >> cardNum;
-
-	} while (cardNum.size() != 16);
-	cout << "Voucher was bought successful.\n";
-	CleanScreen();
+	vouchers[vchrCount - 1].ChangeVoucher(kids, adults, address, date, active);
+	return true;
 }
-void User::BuyExistedVoucher() {
-	string cardNum;
+bool User::BuyExistedVoucher(short choose) {
 
-	int choose = -1;
-	cout << "Choose voucher.\n";
-	PrintPreoderedVouchers();
-	if (vchrCount > 0) {
-		do {
-			cout << "Enter number of your voucher: " << endl;
-			cin >> choose;
-		} while (choose < 0 || choose >= vouchers.size());
-		if (vouchers[choose].GetFlag() == active || vouchers[choose].GetFlag() == inactive) {
-			cout << "Incorrect voucher index" << endl;
-			CleanScreen();
-			return;
-		}
-		vouchers[choose].SetFlag(2);
+	vouchers[choose].SetFlag(2);
 
-		do {
-			cout << "Enter, please your card details: ";
-			cin >> cardNum;
-
-		} while (cardNum.size() != 16);
-		cout << "Voucher was bought successful.\n";
-
-	}
-	else { cout << "You do not have any voucher"; }
-	CleanScreen();
+	return true;
 }
-void User::ReservVoucher() {
+bool User::ReservVoucher(short kids, short adults, Address address, tm date) {
 	vouchers.resize(++vchrCount);
-	vouchers[vchrCount - 1];
 
-	vouchers[vchrCount - 1].SetFlag(1);
-	//vouchers[vchrCount - 1].SetIDs(userID, nextVouchID++);
-	vouchers[vchrCount - 1].ChangeVoucher();
-	vouchers[vchrCount - 1].SetPrice(1000);
-
-	cout << "Price:\t$" << vouchers[vchrCount - 1].GetPrice() << endl;
-	CleanScreen();
+	vouchers[vchrCount - 1].ChangeVoucher(kids, adults, address, date, preodered);
+	return true;
 }
 void User::SetID(int uid) {
 	if (!userID) userID = uid;
