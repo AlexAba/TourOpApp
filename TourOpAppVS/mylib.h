@@ -12,6 +12,8 @@ using namespace std;
 
 
 bool CinFail();
+void ReadLine(string &str);
+void WriteLine(string str);
 inline void CleanScreen() {
 	cout << "\n\n";
 	system("pause");

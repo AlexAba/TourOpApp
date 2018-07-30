@@ -11,14 +11,12 @@ private:
 	tm vouchTime;
 	Status flag;
 public:
-	Voucher();							// Constructor.
+	Voucher();					
 	void ChangeTime(tm date) throw(invalid_date, bad_exception);
-	void ChangeVoucher(short kids, short adults, Address address, tm date, Status voucherStatus) 
-		throw(invalid_argument, invalid_date, bad_exception);				//	Change Voucher settings.
-	//int GetVchrID();					//	Return Voucher ID.
-	Status GetFlag();					//	Return flag of Status of voucher.
+	void ChangeVoucher(short kids, short adults, Address address, tm date, Status voucherStatus);
+	Status GetFlag();			
 	Address GetAddress();
-	void SetFlag(int flag);				//	Lead int type to Status type.
+	void SetFlag(int flag);			
 	float PriceRate();
 	void SetPrice(float factor);
 	float GetPrice();

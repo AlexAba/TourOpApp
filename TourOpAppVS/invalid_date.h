@@ -8,8 +8,6 @@ class invalid_date{
 public:
 	invalid_date();
 	invalid_date(string message);
-	string GetMessage() {
-		return message;
-	}
+	string what();
 };
 

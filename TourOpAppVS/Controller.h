@@ -10,8 +10,6 @@ public:
 	Controller();
 	//int nextVoucherID;
 
-	void Menu(int uid);
-	int Autorization();
 	void Exit(int uid);
 	bool LoginUnique(string ulogin);
 	int FindUser(string ulogin, string upass);
@@ -19,9 +17,8 @@ public:
 	void WriteUsers();
 	void ReadNextID();
 	void WriteNextID();
-	void Greet(User user);
-	int LogIn();
-	int SignUp();
+	int LogIn(string login, string pass);
+	int SignUp(string login, string password, string name, string surname);
 	User GetUser(int id);
 	//void SetVouchID(User &user);
 };

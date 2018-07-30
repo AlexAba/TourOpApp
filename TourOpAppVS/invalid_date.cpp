@@ -11,6 +11,6 @@ invalid_date::invalid_date(string message) {
 	this->message = message;
 }
 
-string invalid_date::GetMessage() {
+string invalid_date::what() {
 	return message;
 }

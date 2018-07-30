@@ -24,5 +24,5 @@ void operator>> (istream& is, Address& address) {
 	is >> address.country >> address.region >> address.city >> address.hotel >> temp;
 	address.room = (RoomType)temp;
 }
-}
+
 
