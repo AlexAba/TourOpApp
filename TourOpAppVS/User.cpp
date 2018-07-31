@@ -65,7 +65,6 @@ string User::EncryptPass(string pass) {
 Voucher User::GetVoucher(int index) {
 	return vouchers[index];
 }
-
 bool User::PassIsCorrect(string pass) {
 	if (password == EncryptPass(pass)) {
 		return true;

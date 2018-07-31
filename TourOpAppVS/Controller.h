@@ -20,7 +20,7 @@ public:
 	void WriteNextID();
 	// Use this to create new user. If login unique it'll return index of user otherwise -1.
 	int SignUp(string login, string password, string name, string surname);
-	User GetUser(int id);
+	User &GetUser(int id);
 	//void SetVouchID(User &user);
 };
 

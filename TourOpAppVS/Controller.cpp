@@ -47,7 +47,7 @@ Controller::~Controller() {
 	WriteUsers();
 }
 
-User Controller::GetUser(int index) {
+User &Controller::GetUser(int index) {
 	return users[index];
 }
 int Controller::SignUp(string login, string password, string name, string surname) {
