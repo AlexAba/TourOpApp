@@ -88,3 +88,12 @@ void Voucher::SetPrice(float factor) {
 	price = float(((int)address.room * 1.5 * adults + (int)address.room * kids * 0.8f) * factor);
 
 }
+int Voucher::GetKids() {
+	return kids;
+}
+int Voucher::GetAdults() {
+	return adults;
+}
+tm Voucher::GetTime() {
+	return vouchTime;
+}

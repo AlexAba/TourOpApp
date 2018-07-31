@@ -42,6 +42,11 @@ Controller::Controller() {
 	ReadUsers();
 }
 
+Controller::~Controller() {
+	WriteNextID();
+	WriteUsers();
+}
+
 User Controller::GetUser(int index) {
 	return users[index];
 }
@@ -73,14 +78,6 @@ int Controller::FindUser(string ulogin, string upass) {
 			}
 	}
 	return -1;
-}
-int Controller::LogIn(string login, string pass) {
-	int UID = FindUser(login, pass);
-	if (~UID) {
-		users[UID].ReadVouchers();
-		return UID;
-	}
-	else return UID;
 }
 
 void Controller::Exit(int uindex) {

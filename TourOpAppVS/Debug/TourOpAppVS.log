@@ -1,6 +1,8 @@
-﻿  TourOpAppVS.cpp
-e:\development\touropappvs\touropappvs\address.h(15): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-e:\development\touropappvs\touropappvs\voucher.h(15): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-e:\development\touropappvs\touropappvs\voucher.h(17): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-e:\development\touropappvs\touropappvs\user.h(36): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+﻿  Controller.cpp
+e:\development\touropappvs\touropappvs\controller.cpp(26): warning C4018: '<': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\controller.cpp(35): warning C4018: '<': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\controller.cpp(72): warning C4018: '<': signed/unsigned mismatch
+e:\development\touropappvs\touropappvs\controller.cpp(94): warning C4018: '<': signed/unsigned mismatch
+  TourOpAppVS.cpp
+  Generating Code...
   TourOpAppVS.vcxproj -> E:\Development\TourOpAppVS\Debug\TourOpAppVS.exe

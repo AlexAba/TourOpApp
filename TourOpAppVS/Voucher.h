@@ -12,7 +12,7 @@ private:
 	Status flag;
 public:
 	Voucher();					
-	void ChangeTime(tm date) throw(invalid_date, bad_exception);
+	void ChangeTime(tm date);
 	void ChangeVoucher(short kids, short adults, Address address, tm date, Status voucherStatus);
 	Status GetFlag();			
 	Address GetAddress();
@@ -20,6 +20,9 @@ public:
 	float PriceRate();
 	void SetPrice(float factor);
 	float GetPrice();
+	int GetKids();
+	int GetAdults();
+	tm GetTime();
 	static bool DateIsCorrect(tm date, tm currentTime);
 	friend void operator << (ostream &os, Voucher &voucher);
 	friend void operator >> (istream &is, Voucher &voucher);

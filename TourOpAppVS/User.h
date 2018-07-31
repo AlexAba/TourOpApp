@@ -33,7 +33,7 @@ public:
 	void ReadVouchers();				//	Read Voucher from the file. 
 	void WriteVouchers();
 	Voucher GetVoucher(int index);			//	Return one Voucher.
-	void ChangeUserData(string name, string surname, string previousPass, string newPass) throw (invalid_argument, bad_exception);
+	void ChangeUserData(string name, string surname, string previousPass, string newPass);
 	void ChangeVoucher(short choose, short kids, short adults, Address address, tm date, Status status);
 	friend void operator << (ostream &os, User &user);
 	friend void operator >> (istream &is, User &user);
