@@ -1,8 +1,2 @@
-﻿  Controller.cpp
-e:\development\touropappvs\touropappvs\controller.cpp(26): warning C4018: '<': signed/unsigned mismatch
-e:\development\touropappvs\touropappvs\controller.cpp(35): warning C4018: '<': signed/unsigned mismatch
-e:\development\touropappvs\touropappvs\controller.cpp(72): warning C4018: '<': signed/unsigned mismatch
-e:\development\touropappvs\touropappvs\controller.cpp(94): warning C4018: '<': signed/unsigned mismatch
-  TourOpAppVS.cpp
-  Generating Code...
+﻿  TourOpAppVS.cpp
   TourOpAppVS.vcxproj -> E:\Development\TourOpAppVS\Debug\TourOpAppVS.exe

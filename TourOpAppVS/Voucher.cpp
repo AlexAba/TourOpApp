@@ -67,14 +67,14 @@ void operator >>(istream &is, Voucher &voucher) {
 }
 float Voucher::PriceRate() {
 	time_t now = time(0);
-	tm * currentTime = new tm();
-	gmtime_s(currentTime, &now);
-	currentTime->tm_year += 1900;
+	tm currentTime = tm();
+	gmtime_s(&currentTime, &now);
+	currentTime.tm_year += 1900;
 
-	if (vouchTime.tm_year - currentTime->tm_year < 1) {
-		if (vouchTime.tm_mon - currentTime->tm_mon >= 6) return .99f;
-		else if (vouchTime.tm_mon - currentTime->tm_mon >= 3) return .6f;
-		else if (vouchTime.tm_mon - currentTime->tm_mon >= 1) return .25f;
+	if (vouchTime.tm_year - currentTime.tm_year < 1) {
+		if (vouchTime.tm_mon - currentTime.tm_mon >= 6) return .99f;
+		else if (vouchTime.tm_mon - currentTime.tm_mon >= 3) return .6f;
+		else if (vouchTime.tm_mon - currentTime.tm_mon >= 1) return .25f;
 		else return .1f;
 	}
 	else return 1.f;
