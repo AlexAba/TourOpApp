@@ -7,6 +7,7 @@
 #include <vector>
 #include <stdexcept>
 #include "invalid_date.h"
+#include "invalid_input.h"
 
 using namespace std;
 

@@ -45,6 +45,9 @@
     <ClInclude Include="invalid_date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="invalid_input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -69,6 +72,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="invalid_date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="invalid_input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

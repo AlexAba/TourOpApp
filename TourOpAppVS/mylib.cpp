@@ -5,13 +5,14 @@ bool CinFail() {
 	if (cin.fail()) {
 		cin.clear();
 		cin.sync();
+		cin.ignore(cin.rdbuf()->in_avail());
 		return true;
 	}
 	return false;
 }
 
 void ReadLine(string &str) {
-	cin.sync();
+	cin.ignore(cin.rdbuf()->in_avail());
 	getline(cin, str);
 
 	for (int i = 0; i < str.size(); i++) {

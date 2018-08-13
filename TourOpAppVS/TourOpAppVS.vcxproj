@@ -150,6 +150,7 @@
     <ClInclude Include="Address.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="invalid_date.h" />
+    <ClInclude Include="invalid_input.h" />
     <ClInclude Include="mylib.h" />
     <ClInclude Include="RoomType.h" />
     <ClInclude Include="Status.h" />
@@ -162,6 +163,7 @@
     <ClCompile Include="Address.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="invalid_date.cpp" />
+    <ClCompile Include="invalid_input.cpp" />
     <ClCompile Include="mylib.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

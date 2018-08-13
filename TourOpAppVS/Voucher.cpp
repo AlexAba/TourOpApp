@@ -14,6 +14,7 @@ void Voucher::ChangeVoucher(short kids, short adults, Address address, tm date, 
 	this->kids = kids;
 	this->adults = adults;
 	this->address.ChangeAddress(address.country, address.region, address.city, address.hotel, address.room);
+	this->flag = status;
 	ChangeTime(date);
 	SetPrice(1000);
 
@@ -54,13 +55,13 @@ void operator >>(istream &is, tm &time) {
 	is >> time.tm_year >> time.tm_mon >> time.tm_mday;
 }
 void operator << (ostream &os, Voucher &voucher) {
-	os << /*voucher.vchrID << " " << voucher.userID << " " << */voucher.kids << " " << voucher.adults << " " << voucher.price << " " << voucher.address;
+	os << voucher.kids << " " << voucher.adults << " " << voucher.price << " " << voucher.address;
 	os << " " << voucher.vouchTime;
 	os << " " << voucher.flag << "\n";
 }
 void operator >>(istream &is, Voucher &voucher) {
 	int iflag;
-	is >> /*voucher.vchrID >> voucher.userID >> */voucher.kids >> voucher.adults >> voucher.price >> voucher.address;
+	is >> voucher.kids >> voucher.adults >> voucher.price >> voucher.address;
 	is >> voucher.vouchTime;
 	is >> iflag;
 	voucher.SetFlag(iflag);
@@ -69,7 +70,6 @@ float Voucher::PriceRate() {
 	time_t now = time(0);
 	tm currentTime = tm();
 	gmtime_s(&currentTime, &now);
-	currentTime.tm_year += 1900;
 
 	if (vouchTime.tm_year - currentTime.tm_year < 1) {
 		if (vouchTime.tm_mon - currentTime.tm_mon >= 6) return .99f;

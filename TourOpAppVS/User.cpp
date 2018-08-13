@@ -36,9 +36,11 @@ void User::WriteVouchers() {
 
 	string log = login + ".txt";
 
-	ofVouch.open(log.c_str());
+	ofVouch.open(log);
 	for (int i = 0; i < vouchers.size(); i++) {
-		if (vouchers[i].GetFlag() != inactive) { ofVouch << vouchers[i]; }
+		if (vouchers[i].GetFlag() != Status::inactive) {
+			ofVouch << vouchers[i]; 
+		}
 	}
 	ofVouch.close();
 }
@@ -80,8 +82,10 @@ int User::RefundMoney(short choose) {
 	return retMoney;
 
 }
+void User::DeleteLastVoucher() {
+	vouchers.resize(--vchrCount);
+}
 void User::BuyVoucher(short kids, short adults, Address address, tm date) {
-
 	vouchers.resize(++vchrCount);
 
 	vouchers[vchrCount - 1].ChangeVoucher(kids, adults, address, date, active);

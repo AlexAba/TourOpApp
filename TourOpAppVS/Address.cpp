@@ -14,7 +14,7 @@ void Address::ChangeAddress(string country, string region, string city, string h
 	this->city = city;
 	this->hotel = hotel;
 	if (roomType < 0 || roomType > 4) throw invalid_argument("\nBad roomType argument.\n");
-	room = roomType;
+	this->room = roomType;
 }
 void operator<< (ostream& os, Address& address) {
 	os << address.country << " " << address.region << " " << address.city << " " << address.hotel << " " << address.room;

@@ -35,6 +35,7 @@ public:
 	Voucher GetVoucher(int index);			//	Return one Voucher.
 	void ChangeUserData(string name, string surname, string previousPass, string newPass);
 	void ChangeVoucher(short choose, short kids, short adults, Address address, tm date, Status status);
+	void DeleteLastVoucher();
 	friend void operator << (ostream &os, User &user);
 	friend void operator >> (istream &is, User &user);
 };
