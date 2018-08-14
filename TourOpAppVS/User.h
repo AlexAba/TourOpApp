@@ -16,7 +16,7 @@ public:
 	User();								// Constructor.
 	void BuyVoucher(short kids, short adults, Address address, tm date);					//	Buy new Voucher.
 	void BuyExistedVoucher(short choose);			//	Buy reserved Voucher.	
-	void ReservVoucher(short kids, short adults, Address address, tm date);				//	Reserv Voucher.
+	void ReservVoucher(short kids, short adults, Address address, tm date);				//	To reserve Voucher.
 	int RefundMoney(short choose);					//	Refund money for the voucher, including date.
 	string GetLogin();					//	Return user login.
 	string GetName();					//	Return user name.
@@ -32,7 +32,7 @@ public:
 	void SetID(int uid);
 	void ReadVouchers();				//	Read Voucher from the file. 
 	void WriteVouchers();
-	Voucher GetVoucher(int index);			//	Return one Voucher.
+	Voucher &GetVoucher(int index);			//	Return one Voucher.
 	void ChangeUserData(string name, string surname, string previousPass, string newPass);
 	void ChangeVoucher(short choose, short kids, short adults, Address address, tm date, Status status);
 	void DeleteLastVoucher();

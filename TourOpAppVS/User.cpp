@@ -52,7 +52,6 @@ void User::ChangeUserData(string name, string surname, string previousPass, stri
 	SetPass(newPass);
 }
 void User::ChangeVoucher(short choose, short kids, short adults, Address address, tm date, Status status) {
-
 		vouchers[choose].ChangeVoucher(kids, adults, address, date, status);
 }
 string User::EncryptPass(string pass) {
@@ -64,7 +63,7 @@ string User::EncryptPass(string pass) {
 	}
 	return newPass;
 }
-Voucher User::GetVoucher(int index) {
+Voucher &User::GetVoucher(int index) {
 	return vouchers[index];
 }
 bool User::PassIsCorrect(string pass) {

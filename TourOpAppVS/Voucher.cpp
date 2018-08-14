@@ -11,11 +11,11 @@ Voucher::Voucher() {
 }
 void Voucher::ChangeVoucher(short kids, short adults, Address address, tm date, Status status) {
 	if (kids < 0 || adults < 0) throw invalid_argument("\nInvalid number of humans.\n");
+	ChangeTime(date);
 	this->kids = kids;
 	this->adults = adults;
 	this->address.ChangeAddress(address.country, address.region, address.city, address.hotel, address.room);
 	this->flag = status;
-	ChangeTime(date);
 	SetPrice(1000);
 
 }
@@ -24,9 +24,8 @@ void Voucher::ChangeTime(tm date) {
 	tm currentTime = tm();
 	gmtime_s(&currentTime, &now);
 
+	if (!DateIsCorrect(date, currentTime)) throw invalid_date("\nDate is impossible.\n");
 	vouchTime = date;
-
-	if (!DateIsCorrect(vouchTime, currentTime)) throw invalid_date("\nDate is impossible.\n");
 }
 bool Voucher::DateIsCorrect(tm date, tm currentTime) {
 	if (date.tm_year < currentTime.tm_year) return false;
@@ -46,6 +45,7 @@ Address Voucher::GetAddress() {
 	return address;
 }
 void Voucher::SetFlag(int flag) {
+	if (flag < 0 || flag > 2) throw invalid_argument("\nUnknown status of voucher.\n");
 	this->flag = ((Status)flag);		// 0-inactive, 1-pre-odered, 2-active.
 }
 void operator <<(ostream &os, tm &time) {
