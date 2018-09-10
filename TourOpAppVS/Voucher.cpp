@@ -28,6 +28,7 @@ void Voucher::ChangeTime(tm date) {
 	vouchTime = date;
 }
 bool Voucher::DateIsCorrect(tm date, tm currentTime) {
+	if (date.tm_mday < 1 || date.tm_mday > 31 || date.tm_mon < 0 || date.tm_mon > 11) return false;
 	if (date.tm_year < currentTime.tm_year) return false;
 	else if (date.tm_year == currentTime.tm_year) {
 		if (date.tm_mon < currentTime.tm_mon) return false;

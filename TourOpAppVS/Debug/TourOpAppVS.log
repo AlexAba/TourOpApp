@@ -1,2 +1,4 @@
 ﻿  TourOpAppVS.cpp
+e:\development\touropappvs\touropappvs\touropappvs.cpp(412): warning C4129: 'B': unrecognized character escape sequence
+e:\development\touropappvs\touropappvs\touropappvs.cpp(417): warning C4129: 'B': unrecognized character escape sequence
   TourOpAppVS.vcxproj -> E:\Development\TourOpAppVS\Debug\TourOpAppVS.exe
