@@ -2,7 +2,7 @@
 ### This is an application in which I show my knowledges of C++ and OOP.
 
 Use Visual Studio to start up this application.
-###### If you want to use GCC compiler the best way is to add all .cpp and .h files from TourOpAppVS to you directory and alter next things:
+###### If you want to use GCC compiler the best way to do this is to alter next things:
 * in Voucher.cpp in methods: \
 `void Voucher::ChangeTime(tm date);` \
 `float Voucher::PriceRate();` \
